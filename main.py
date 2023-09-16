@@ -48,14 +48,14 @@ async def startprivate(client, message):
     joinButton = InlineKeyboardMarkup(
         [
             [
-                InlineKeyboardButton("CHANNEL", url="https://t.me/nacbots"),
+                InlineKeyboardButton("GABUNG CHANNEL", url="t.me/haotogelresult"),
                 InlineKeyboardButton(
-                    "SUPPORT GROUP", url="https://t.me/n_a_c_bot_developers"
+                    "GABUNG GROUP", url="t.me/HaoTogelLivedraw"
                 ),
             ]
         ]
     )
-    welcomed = f"Hey <b>{message.from_user.first_name}</b>\nI'm a simple Telegram bot that can broadcast messages and media to the bot subscribers. Made by @NACBOTS.\n\n 🎚 use /settings"
+    welcomed = f"Hey <b>{message.from_user.first_name}</b>\nI'm a simple Telegram bot that can broadcast messages and media to the bot subscribers. Made by @HaoTogelLivedraw.\n\n 🎚 use /settings"
     await message.reply_text(welcomed, reply_markup=joinButton)
     raise StopPropagation
 
@@ -96,7 +96,7 @@ async def sts(c, m):
         await m.delete()
         return
     await m.reply_text(
-        text=f"**Total Users in Database 📂:** `{await db.total_users_count()}`\n\n**Total Users with Notification Enabled 🔔 :** `{await db.total_notif_users_count()}`",
+        text=f"**Total User dalam Database 📂:** `{await db.total_users_count()}`\n\n**Total User dengan Notifikasi Enabled 🔔 :** `{await db.total_notif_users_count()}`",
         quote=True
     )
 
