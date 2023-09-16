@@ -48,14 +48,13 @@ async def startprivate(client, message):
     joinButton = InlineKeyboardMarkup(
         [
             [
-                InlineKeyboardButton("👩‍💻 Admin Haotogel 👩‍💻", url="t.me/Haotogel_OfficiaI"),
                 InlineKeyboardButton(
-                    "✨ Gabung Group ✨", url="t.me/HaoTogelLivedraw"
+                    "👩‍💻 ᴀᴅᴍɪɴ ʜᴀᴏᴛᴏɢᴇʟ 👩‍💻", url="t.me/HaoTogelLivedraw"
                 ),
             ]
         ]
     )
-    welcomed = f"Hai bosku {message.from_user.mention} untuk dapat terhubung dengan admin silahkan klik tombol dibawah ini 👇"
+    welcomed = f"Hai bosku {message.from_user.mention}, untuk dapat terhubung dengan admin silahkan klik tombol dibawah ini 👇"
     await message.reply_text(welcomed, reply_markup=joinButton)
     raise StopPropagation
 
