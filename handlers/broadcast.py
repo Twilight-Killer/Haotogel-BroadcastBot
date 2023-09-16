@@ -86,13 +86,13 @@ async def broadcast(m, db):
     await out.delete()
     if failed == 0:
         await m.reply_text(
-            text=f"broadcast selesai in `{completed_in}`\n\nTotal users {total_users}.\nTotal done {done},\n{success} success and {failed} failed.",
+            text=f"broadcast selesai `{completed_in}`\n\nTotal users {total_users}.\nTotal selesai {done}.\nSukses {success}.\nGagal {failed}.",
             quote=True,
         )
     else:
         await m.reply_document(
             document="broadcast.txt",
-            caption=f"broadcast selesai in `{completed_in}`\n\nTotal users {total_users}.\nTotal done {done},\n{success} success and {failed} failed.",
+            caption=f"broadcast selesai `{completed_in}`\n\nTotal users {total_users}.\nTotal selesai {done}.\nSukses {success}.\nGagal {failed}.",
             quote=True,
         )
     os.remove("broadcast.txt")
