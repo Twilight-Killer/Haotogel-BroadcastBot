@@ -48,14 +48,14 @@ async def startprivate(client, message):
     joinButton = InlineKeyboardMarkup(
         [
             [
-                InlineKeyboardButton("GABUNG CHANNEL", url="t.me/haotogelresult"),
+                InlineKeyboardButton("👩‍💻 Admin Haotogel 👩‍💻", url="t.me/Haotogel_OfficiaI"),
                 InlineKeyboardButton(
-                    "GABUNG GROUP", url="t.me/HaoTogelLivedraw"
+                    "✨ Gabung Group ✨", url="t.me/HaoTogelLivedraw"
                 ),
             ]
         ]
     )
-    welcomed = f"Hey <b>{message.from_user.first_name}</b>\nI'm a simple Telegram bot that can broadcast messages and media to the bot subscribers. Made by @HaoTogelLivedraw.\n\n 🎚 use /settings"
+    welcomed = f"Hai bosku {message.from_user.mention} untuk dapat terhubung dengan admin silahkan klik tombol dibawah ini 👇"
     await message.reply_text(welcomed, reply_markup=joinButton)
     raise StopPropagation
 
@@ -64,7 +64,7 @@ async def startprivate(client, message):
 async def opensettings(bot, cmd):
     user_id = cmd.from_user.id
     await cmd.reply_text(
-        f"`Here You Can Set Your Settings:`\n\nSuccessfully setted notifications to **{await db.get_notif(user_id)}**",
+        f"`Here You Can Set Your Settings:`\n\nSuccessfully settings notifications to **{await db.get_notif(user_id)}**",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
@@ -148,14 +148,14 @@ async def unban(c, m):
         return
     if len(m.command) == 1:
         await m.reply_text(
-            f"Use this command to unban 😃 any user.\n\nUsage:\n\n`/unban_user user_id`\n\nEg: `/unban_user 1234567`\n This will unban user with id `1234567`.",
+            f"Use this command to unban any user.\n\nUsage:\n\n`/unban_user user_id`\n\nEg: `/unban_user 1234567`\n This will unban user with id `1234567`.",
             quote=True,
         )
         return
 
     try:
         user_id = int(m.command[1])
-        unban_log_text = f"Unbanning user 🤪 {user_id}"
+        unban_log_text = f"Unbanning user {user_id}"
 
         try:
             await c.send_message(user_id, f"Your ban was lifted!")
@@ -191,7 +191,7 @@ async def _banned_usrs(c, m):
         ban_reason = banned_user["ban_status"]["ban_reason"]
         banned_usr_count += 1
         text += f"> **User_id**: `{user_id}`, **Ban Duration**: `{ban_duration}`, **Banned on**: `{banned_on}`, **Reason**: `{ban_reason}`\n\n"
-    reply_text = f"Total banned user(s) 🤭: `{banned_usr_count}`\n\n{text}"
+    reply_text = f"Total banned user(s) : `{banned_usr_count}`\n\n{text}"
     if len(reply_text) > 4096:
         with open("banned-users.txt", "w") as f:
             f.write(reply_text)
@@ -211,7 +211,7 @@ async def callback_handlers(bot: Client, cb: CallbackQuery):
         else:
             await db.set_notif(user_id, notif=True)
         await cb.message.edit(
-            f"`Here You Can Set Your Settings:`\n\nSuccessfully setted notifications to **{await db.get_notif(user_id)}**",
+            f"`Here You Can Set Your Settings:`\n\nSuccessfully settings notifications to **{await db.get_notif(user_id)}**",
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
@@ -225,7 +225,7 @@ async def callback_handlers(bot: Client, cb: CallbackQuery):
             ),
         )
         await cb.answer(
-            f"Successfully setted notifications to {await db.get_notif(user_id)}"
+            f"Successfully settings notifications to {await db.get_notif(user_id)}"
         )
     else:
         await cb.message.delete(True)
